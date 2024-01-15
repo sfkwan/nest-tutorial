@@ -34,5 +34,16 @@ $ pnpm run test:e2e
 $ pnpm run test:cov
 ```
 
-## Support
+## ORM
+
+```bash
+pnpm install -D prisma
+npx prisma init
+
+# generate sql
+npx prisma migrate dev --name "init"
+
+# add seed.ts then, init db data
+npx prisma db seed
+```
 
