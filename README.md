@@ -47,3 +47,13 @@ npx prisma migrate dev --name "init"
 npx prisma db seed
 ```
 
+## Swagger
+``` bash
+pnpm install --save @nestjs/swagger swagger-ui-express
+
+```
+
+## Input Validation
+```bash
+npm install class-validator class-transformer
+```
