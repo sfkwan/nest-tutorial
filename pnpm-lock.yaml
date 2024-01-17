@@ -29,6 +29,9 @@ dependencies:
   class-validator:
     specifier: ^0.14.1
     version: registry.npmmirror.com/class-validator@0.14.1
+  helmet:
+    specifier: ^7.1.0
+    version: registry.npmmirror.com/helmet@7.1.0
   reflect-metadata:
     specifier: ^0.1.13
     version: registry.npmmirror.com/reflect-metadata@0.1.14
@@ -3830,6 +3833,13 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       function-bind: registry.npmmirror.com/function-bind@1.1.2
+
+  registry.npmmirror.com/helmet@7.1.0:
+    resolution: {integrity: sha512-g+HZqgfbpXdCkme/Cd/mZkV0aV3BZZZSugecH03kl38m/Kmdx8jKjBikpDj2cr+Iynv4KpYEviojNdTJActJAg==, tarball: https://registry.npmmirror.com/helmet/-/helmet-7.1.0.tgz}
+    name: helmet
+    version: 7.1.0
+    engines: {node: '>=16.0.0'}
+    dev: false
 
   registry.npmmirror.com/hexoid@1.0.0:
     resolution: {integrity: sha512-QFLV0taWQOZtvIRIAdBChesmogZrtuXvVWsFHZTk2SU+anspqZ2vMnoLg7IE1+Uk16N19APic1BuF8bC8c2m5g==, tarball: https://registry.npmmirror.com/hexoid/-/hexoid-1.0.0.tgz}
