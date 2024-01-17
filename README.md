@@ -72,3 +72,8 @@ https://docs.nestjs.com/security/helmet
 ```bash
 https://docs.nestjs.com/security/cors
 ```
+
+## Authorization
+```bash
+https://docs.nestjs.com/security/authorization
+```
