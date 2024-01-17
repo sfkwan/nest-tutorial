@@ -7,6 +7,9 @@ class EnvironmentVariables {
 
     @IsString()
     CONTEXT_PATH: string;
+
+    @IsString()
+    CORS_DOMAIN: string;
 }
 
 export function validate(config: Record<string, unknown>) {

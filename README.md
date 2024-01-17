@@ -67,3 +67,8 @@ npx nest generate filter prisma-client-exception
 ```bash
 https://docs.nestjs.com/security/helmet
 ```
+
+## CORS
+```bash
+https://docs.nestjs.com/security/cors
+```

@@ -4,11 +4,16 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 import { PrismaClientExceptionFilter } from './prisma-client-exception.filter';
 import helmet from 'helmet';
+import { AppconfigService } from './appconfig/appconfig.service';
 
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  const configService = app.get(AppconfigService);
+
   app.use(helmet());
+  app.enableCors({origin: configService.getServerConfig().corsDomain});
 
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
@@ -27,6 +32,6 @@ async function bootstrap() {
   app.useGlobalFilters(new PrismaClientExceptionFilter(httpAdapter));
 
   
-  await app.listen(3000);
+  await app.listen(configService.getServerConfig().port);
 }
 bootstrap();
