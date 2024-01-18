@@ -7,10 +7,16 @@ import { ArticlesModule } from './articles/articles.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtService } from '@nestjs/jwt';
+import { WinstonModule } from 'nest-winston';
+import { Logger, transports } from 'winston';
 
 @Module({
-  imports: [AppconfigModule, PrismaModule, ArticlesModule, UsersModule, AuthModule],
+  imports: [AppconfigModule, PrismaModule, ArticlesModule, UsersModule, AuthModule,
+    WinstonModule.forRoot({
+      transports: [new transports.Console]
+    })
+  ],
   controllers: [AppController],
-  providers: [AppService, JwtService],
+  providers: [AppService, JwtService, Logger],
 })
 export class AppModule {}
