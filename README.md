@@ -77,3 +77,10 @@ https://docs.nestjs.com/security/cors
 ```bash
 https://docs.nestjs.com/security/authorization
 ```
+
+### auth
+```bash
+pnpm install --save @nestjs/passport passport passport-jwt
+pnpm install --save-dev @types/passport-jwt
+
+```
