@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, Logger } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AppconfigModule } from './appconfig/appconfig.module';
@@ -8,7 +8,9 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtService } from '@nestjs/jwt';
 import { WinstonModule } from 'nest-winston';
-import { Logger, transports } from 'winston';
+import { transports } from 'winston';
+import { APP_FILTER } from '@nestjs/core';
+import { UnifyExceptionFilter } from './common/unify-exception.filter';
 
 @Module({
   imports: [AppconfigModule, PrismaModule, ArticlesModule, UsersModule, AuthModule,
@@ -17,6 +19,12 @@ import { Logger, transports } from 'winston';
     })
   ],
   controllers: [AppController],
-  providers: [AppService, JwtService, Logger],
+  providers: [
+    AppService, JwtService, Logger,
+    {
+      provide: APP_FILTER,
+      useClass: UnifyExceptionFilter,
+    }
+  ],
 })
 export class AppModule {}

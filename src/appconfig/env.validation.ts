@@ -2,6 +2,10 @@ import { plainToInstance } from 'class-transformer';
 import {IsBoolean, IsNumber, IsString, validateSync} from 'class-validator';
 
 class EnvironmentVariables {
+
+    @IsString()
+    APP_CODE: string;
+
     @IsNumber()
     PORT: number;
 
