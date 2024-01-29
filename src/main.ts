@@ -9,8 +9,8 @@ import { LoggerService } from '@nestjs/common';
 import * as os from 'os';
 import * as winston from 'winston';
 import { EccLog } from './common/ecclog.dto';
-import { format } from 'path';
 import { WinstonModule } from 'nest-winston';
+import * as cookieParser from 'cookie-parser';
 
 
 function initLogger(configService: AppconfigService) : LoggerService {
@@ -79,6 +79,7 @@ async function bootstrap() {
   app.useLogger(initLogger(configService));
   app.use(helmet());
   app.enableCors({origin: configService.getServerConfig().corsDomain});
+  app.use(cookieParser());
 
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
