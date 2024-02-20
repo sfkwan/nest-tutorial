@@ -86,7 +86,7 @@ pnpm install --save-dev @types/passport-jwt
 ```
 
 ### docker-compose
-启动后需要初始化db
+在docker中演示，每次启动后需要初始化db
 ```bash
 
 npx prisma migrate deploy 
