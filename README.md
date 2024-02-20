@@ -84,3 +84,12 @@ pnpm install --save @nestjs/passport passport passport-jwt
 pnpm install --save-dev @types/passport-jwt
 
 ```
+
+### docker-compose
+启动后需要初始化db
+```bash
+
+npx prisma migrate deploy 
+npx prisma db seed
+
+```
